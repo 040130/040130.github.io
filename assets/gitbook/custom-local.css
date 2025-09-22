@@ -1,8 +1,24 @@
-/* This file is kept intentionally blank inside the jekyll-github-theme
+ï»¿/* This file is kept intentionally blank inside the jekyll-github-theme
  * It gets imported at the end of custom.css
  * Its purpose is for users of the theme to be able to add css rules from a blank file
  *   these get simply added to the ones already active in the layout.
  */
 .page-inner {
-    background-color: rgba(255, 255, 255, 0.9); /* °ëÍ¸Ã÷±³¾° */
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+/* Fix for copy button overlapping code on mobile devices */
+@media (max-width: 768px) {
+    .copy-code-button {
+        position: absolute !important;
+        top: 5px !important;
+        right: 5px !important;
+        padding: 2px 5px !important;
+        font-size: 12px !important;
+        z-index: 10;
+    }
+    
+    pre {
+        padding-top: 30px !important;
+    }
 }

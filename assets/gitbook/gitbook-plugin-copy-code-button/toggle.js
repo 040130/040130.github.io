@@ -56,7 +56,43 @@ require(["gitbook", "jquery"], function (gitbook, $) {
             $(this).css("position", "relative");
 
             var $copyCodeButton = $("<button class='copy-code-button'>Copy</button>");
-            $copyCodeButton.css({ "position": "absolute", "top": "5px", "right": "5px", "padding": "3px", "background-color": "#313E4E", "color": "white", "border-radius": "5px", "-moz-border-radius": "5px", "-webkit-border-radius": "5px", "border": "2px solid #CCCCCC" });
+            
+            // Check if we're on a mobile device
+            if (window.innerWidth <= 768) {
+                // Adjust button size and position for mobile
+                $copyCodeButton.css({ 
+                    "position": "absolute", 
+                    "top": "5px", 
+                    "right": "5px", 
+                    "padding": "2px 5px", 
+                    "font-size": "12px",
+                    "background-color": "#313E4E", 
+                    "color": "white", 
+                    "border-radius": "5px", 
+                    "-moz-border-radius": "5px", 
+                    "-webkit-border-radius": "5px", 
+                    "border": "2px solid #CCCCCC",
+                    "z-index": "10"
+                });
+                
+                // Add padding to the top of the code block on mobile
+                $(this).css("padding-top", "30px");
+            } else {
+                // Default desktop styling
+                $copyCodeButton.css({ 
+                    "position": "absolute", 
+                    "top": "5px", 
+                    "right": "5px", 
+                    "padding": "3px", 
+                    "background-color": "#313E4E", 
+                    "color": "white", 
+                    "border-radius": "5px", 
+                    "-moz-border-radius": "5px", 
+                    "-webkit-border-radius": "5px", 
+                    "border": "2px solid #CCCCCC" 
+                });
+            }
+            
             $copyCodeButton.click(function () {
                 var $codeContainer = $(this).siblings("code");
                 if ($codeContainer) {
