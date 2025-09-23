@@ -72,3 +72,10 @@ plugins:
   - jekyll-feed
   - jekyll-readme-index
   - jemoji
+
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post-with-toc

@@ -25,7 +25,7 @@
     .book-body .body-inner {
         position: absolute;
         margin-top: 50px;
-        min-height: calc(100% - 50px)
+        min-height: calc(100% - 50px);
     }
 }
 
@@ -68,6 +68,14 @@
 .back-to-top {
     right: calc((100% - 300px - min(100% - 300px, {{ site.page_width | default: '800px' }})) / 2 + 25px);
 }
+
+/* Adjust back-to-top button position on larger screens to avoid overlap with right sidebar */
+@media (min-width: 1241px) {
+    .back-to-top {
+        right: calc(250px + (100% - 300px - min(100% - 300px, {{ site.page_width | default: '800px' }})) / 2 + 25px);
+    }
+}
+
 
 /* scrollbar */
 ::-webkit-scrollbar {
